@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Purple K Investments - Preserve Your Family Legacy</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet" />
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: #3e1d4a;
+    background-color: #faf9fc;
+    line-height: 1.6;
+  }
+  a {
+    text-decoration: none;
+    color: #6a4b9a;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #4b2c7a;
+  }
+  /* Container */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Header / Hero */
+  header {
+    background: linear-gradient(135deg, #6a4b9a 30%, #a377b8 90%);
+    color: #fff;
+    padding: 120px 20px 100px;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+  }
+  header .text {
+    flex: 1 1 480px;
+    max-width: 580px;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.6rem;
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+  header p {
+    font-size: 1.25rem;
+    margin-bottom: 35px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  header .btn-primary {
+    background-color: #fff;
+    color: #6a4b9a;
+    font-weight: 700;
+    padding: 14px 42px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.15rem;
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.6);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  header .btn-primary:hover {
+    background-color: #a377b8;
+    color: #fff;
+  }
+  header .hero-image {
+    flex: 1 1 400px;
+    max-width: 450px;
+  }
+  header .hero-image img {
+    width: 100%;
+    border-radius: 24px;
+    box-shadow: 0 15px 30px rgba(106, 75, 154, 0.5);
+    object-fit: cover;
+  }
+
+  /* Sections */
+  section {
+    padding: 80px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: #6a4b9a;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  /* About */
+  #about .content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.15rem;
+    color: #4b3b68;
+    line-height: 1.6;
+  }
+
+  /* Services Grid */
+  #services .services-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+  }
+  #services .service-card {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(163, 119, 184, 0.15);
+    padding: 30px 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+  }
+  #services .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 38px rgba(163, 119, 184, 0.35);
+  }
+  #services .service-icon {
+    margin-bottom: 25px;
+    color: #6a4b9a;
+    width: 64px;
+    height: 64px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #services .service-title {
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #4b2c7a;
+  }
+  #services .service-desc {
+    color: #6e4b8e;
+    font-weight: 500;
+  }
+
+  /* Why Choose Us */
+  #why .why-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  #why .why-item {
+    background: #f9f7fc;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(163, 119, 184, 0.12);
+    flex: 1 1 300px;
+    padding: 30px 25px;
+    font-weight: 600;
+    color: #5c3a9d;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    cursor: default;
+    transition: background-color 0.3s ease;
+  }
+  #why .why-item:hover {
+    background-color: #e5dbf7;
+  }
+  #why .why-icon {
+    width: 32px;
+    height: 32px;
+    color: #7e61bc;
+  }
+
+  /* Contact Section */
+  #contact {
+    background: #6a4b9a;
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  #contact h2 {
+    color: #f4eaff;
+    margin-bottom: 30px;
+  }
+  #contact p {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    font-size: 1.15rem;
+  }
+  #contact a {
+    color: #d5c1f9;
+    font-weight: 700;
+  }
+  #contact a:hover {
+    color: #fff;
+  }
+  #contact form {
+    max-width: 480px;
+    margin: 30px auto 0;
+    text-align: left;
+  }
+  #contact label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  #contact input, #contact textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+  }
+  #contact textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  #contact .btn-contact {
+    background-color: #fff;
+    color: #6a4b9a;
+    padding: 14px 42px;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.6);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: block;
+    margin: 0 auto;
+  }
+  #contact .btn-contact:hover {
+    background-color: #a377b8;
+    color: #fff;
+  }
+  #thankyou-message {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #e6d6ff;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 25px 15px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #6a4b9a;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      text-align: center;
+      padding: 80px 20px 60px;
+    }
+    header .text {
+      max-width: 100%;
+    }
+    header .hero-image {
+      max-width: 100%;
+      order: -1;
+      margin-bottom: 30px;
+    }
+    #why .why-list {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="text">
+      <h1>Preserve Your Family Legacy with Purple K Investments</h1>
+      <p>Helping families keep their properties and turn them into lasting assets through expert management, tax planning, and legacy preservation.</p>
+      <button class="btn-primary" id="scrollToContact">Get in Touch</button>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Family home legacy" />
+  </div>
+</header>
+
+<section id="about" class="container">
+  <h2 class="section-title">About Us</h2>
+  <div class="content">
+    <p>Purple K Investments was founded to help families maintain their homes across generations. We understand the challenges of rising taxes, property upkeep, and planning for the future. Our trusted team handles everything so your family can enjoy peace of mind and a secure legacy.</p>
+  </div>
+</section>
+
+<section id="services" class="container">
+  <h2 class="section-title">Our Services</h2>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon" aria-hidden="true">
+        <!-- SVG Home Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#6a4b9a" viewBox="0 0 24 24" width="48" height="48"><path d="M3 11l9-8 9 8v10a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2z"/></svg>
+      </div>
+      <h3 class="service-title">Property Management</h3>
+      <p class="service-desc">Comprehensive care that treats your property like our own, ensuring maintenance and tenant relations are handled seamlessly.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" aria-hidden="true">
+        <!-- SVG Dollar Sign Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#6a4b9a" viewBox="0 0 24 24" width="48" height="48"><path d="M12 1v2M17.66 6.34l-1.41 1.41M21 12h-2M17.66 17.66l-1.41-1.41M12 21v-2M6.34 17.66l1.41-1.41M3 12h2M6.34 6.34l1.41 1.41M12 7a4 4 0 0 0 0 8 4 4 0 0 0 0-8z"/></svg>
+      </div>
+      <h3 class="service-title">Tax & Financial Planning</h3>
+      <p class="service-desc">Strategies that minimize tax burdens and optimize revenue opportunities without sacrificing ownership.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" aria-hidden="true">
+        <!-- SVG Scroll / Document Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#6a4b9a" viewBox="0 0 24 24" width="48" height="48"><path d="M8 2h8v2H8zm-4 4h16v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6zm2 2v10h8V8H6z"/></svg>
+      </div>
+      <h3 class="service-title">Legacy Preservation</h3>
+      <p class="service-desc">Tailored plans that respect family history and ensure your property stays in trusted hands for generations.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="why" class="container">
+  <h2 class="section-title">Why Choose Purple K Investments?</h2>
+  <div class="why-list">
+    <div class="why-item">
+      <div class="why-icon" aria-hidden="true">
+        <!-- SVG Handshake Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#7e61bc" viewBox="0 0 24 24" width="32" height="32"><path d="M2 12l4-4 5 5 5-5 4 4v6H2z"/></svg>
+      </div>
+      Family-Centered Approach
+    </div>
+    <div class="why-item">
+      <div class="why-icon" aria-hidden="true">
+        <!-- SVG Lock Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#7e61bc" viewBox="0 0 24 24" width="32" height="32"><path d="M6 11V7a6 6 0 0 1 12 0v4h1a2 2 0 0 1 2 2v6H3v-6a2 2 0 0 1 2-2h1zm2 0h8v-4a4 4 0 0 0-8 0z"/></svg>
+      </div>
+      Reliable Management
+    </div>
+    <div class="why-item">
+      <div class="why-icon" aria-hidden="true">
+        <!-- SVG Chart Up Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#7e61bc" viewBox="0 0 24 24" width="32" height="32"><path d="M3 17h18v2H3zm2-7h2v7H5zm4-5h2v12H9zm4 3h2v9h-2z"/></svg>
+      </div>
+      Revenue Opportunities
+    </div>
+    <div class="why-item">
+      <div class="why-icon" aria-hidden="true">
+        <!-- SVG Heart Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#7e61bc" viewBox="0 0 24 24" width="32" height="32"><path d="M12 21s-6-4.35-6-8.5A4 4 0 0 1 12 8a4 4 0 0 1 6 4.5c0 4.15-6 8.5-6 8.5z"/></svg>
+      </div>
+      Trusted Partnerships
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <p>Let’s Talk About Your Legacy</p>
+    <p>Are you facing challenges keeping up with taxes, maintenance, or planning for the future of your family’s property? Purple K Investments is here to help. Contact us today to explore how we can support your goals and keep your property in the family—where it belongs.</p>
+    <p><strong>Email:</strong> <a href="mailto:info@purplekinvestments.net">info@purplekinvestments.net</a></p>
+    <p><strong>Phone:</strong> (XXX) XXX-XXXX</p>
+    <p><strong>Location:</strong> Atlanta, GA and Phoenix, AZ</p>
+
+    <form id="contactForm" novalidate>
+      <label for="name">Name *</label>
+      <input type="text" id="name" name="name" required placeholder="Your full name" />
+
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" required placeholder="you@example.com" />
+
+      <label for="message">Message *</label>
+      <textarea id="message" name="message" required placeholder="How can we help you?"></textarea>
+
+      <button type="submit" class="btn-contact">Send Message</button>
+    </form>
+    <div id="thankyou-message">Thank you for reaching out! We will contact you soon.</div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Purple K Investments. All rights reserved.
+</footer>
+
+<script>
+  // Smooth scroll to contact section
+  document.getElementById('scrollToContact').addEventListener('click', () => {
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Form validation and submission
+  const form = document.getElementById('contactForm');
+  const thankyou = document.getElementById('thankyou-message');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Simple validation
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+    if (name && email && message && validateEmail(email)) {
+      // Simulate form submission
+      form.style.display = 'none';
+      thankyou.style.display = 'block';
+    } else {
+      alert('Please fill out all fields correctly.');
+    }
+  });
+
+  function validateEmail(email) {
+    // Basic email regex
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  // Scroll fade-in animation for sections
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+  sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
